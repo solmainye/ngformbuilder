@@ -1,0 +1,13 @@
+{
+    "fields": [
+      {
+        "type": "text",
+        "label": " Label",
+        "placeholder": " Placeholder",
+        "required": false,
+        "options": [],
+        "defaultValue": ""
+      }
+    ]
+  }
+  

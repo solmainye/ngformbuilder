@@ -1,0 +1,31 @@
+
+.container {
+    max-width: 400px;
+    margin: auto;
+    padding: 25px;
+  }
+  
+  .field-container {
+    border: 2px solid #a82626;
+    padding: 10px;
+    margin: 10px 0;
+    background: white;
+    border-radius: 5px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #a7b300;
+  }
+  

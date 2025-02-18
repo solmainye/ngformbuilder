@@ -1,0 +1,54 @@
+<div class="container">
+  <h2> The Dynamic Form Builder</h2>
+  <div class="form-group">
+    <label>Add Field:</label>
+    <select (change)="onSelectChange($event)">
+      <option value="" disabled selected>Select Type</option>
+      <option *ngFor="let type of fieldTypes" [value]="type">{{ type }}</option>
+    </select>
+  </div>
+
+  <form [formGroup]="formBuilderForm">
+    <div formArrayName="fields">
+      <div
+        class="field-container"
+        *ngFor="let field of fields.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <label>Label:</label>
+        <input
+          type="text"
+          formControlName="label"
+          placeholder="Enter field label"
+        />
+
+        <label>Placeholder:</label>
+        <input
+          type="text"
+          formControlName="placeholder"
+          placeholder="Enter placeholder text"
+        />
+
+        <label>
+          <input type="checkbox" formControlName="required" />
+          Required
+        </label>
+        
+        <div *ngIf="field.get('type')?.value === 'dropdown' || field.get('type')?.value === 'radio'">
+          <label>Available Options:</label>
+          <input
+            type="text"
+            [value]="field.value.options"
+            (change)="updateOptions(i, $event)"
+            placeholder="Option1, Option2"
+          />
+        </div>
+
+        <button type="button" (click)="removeField(i)">Remove</button>
+      </div>
+    </div>
+  </form>
+
+  <button (click)="saveFormConfig()">Save Form</button>
+  <button (click)="loadFormConfig()">Load Form</button>
+</div>
